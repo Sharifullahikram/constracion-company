@@ -8,32 +8,34 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    // this will be change it dear 
   />
 </head>
 <body>
 
   <!-- Header -->
   <header class="topbar">
+    <header class="topbar.hide"></header>
     <div class="container nav-wrapper">
-      <div class="logo" >
+      <div class="logo">
         <img
-              src="./assets/logo.jpg"
-              alt="اپلیکیشن"
-            />
+          src="./assets/Construction excellence with Hewad Wadan.png"
+          alt="هیواد ودان"
+        />
       </div>
 
       <nav class="nav-links">
         <a href="#home">کورپاڼه</a>
-        <a href="#features">ځانګړنې</a>
-        <a href="#preview">ډېمو</a>
-        <a href="#about">زموږ په اړه</a>
-        <a href="#faq">پوښتنې</a>
+        <a href="dashboard.html">ډشبورډ</a>
+        <a href="assigned-projects.html">جورښت</a>
+        <a href="task-scheduling.html">زموږ په اړه</a>
+        <a href="progress.html">پروژی</a>
+         <a href="information.html">زموژ د شرکت اړوند</a>
+        
       </nav>
 
       <div class="nav-actions">
-        <a href="#" class="btn btn-light">ننوتل</a>
-        <a href="#" class="btn btn-primary">حساب جوړول</a>
+        <a href="login.html" class="btn btn-light">ننوتل</a>
+        <a href="signup.html" class="btn btn-primary">حساب جوړول</a>
       </div>
     </div>
   </header>
@@ -43,7 +45,7 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-text">
-          <span class="badge">هوښیار ویب اپلېکېشن</span>
+          <span class="badge">هیواد ودان ساختماني شرکت ته ښه راغلاست</span>
           <h1>خپلې پروژې، کارکوونکي، مواد او مالي چارې په یو ځای مدیریت کړئ</h1>
           <p>
             زموږ سیستم تاسو سره مرسته کوي چې ساختماني پروژې په اسانه ډول تنظیم،
@@ -52,7 +54,7 @@
 
           <div class="hero-buttons">
             <a href="#" class="btn btn-primary">همدا اوس پیل کړئ</a>
-            <a href="#" class="btn btn-outline">ژوندۍ ډېمو وګورئ</a>
+            <a href="" class="btn btn-outline">ژوندۍ ډېمو وګورئ</a>
           </div>
 
           <div class="hero-stats">
@@ -73,10 +75,7 @@
 
         <div class="hero-visual">
           <div class="hero-card">
-            <img
-              src="./assets/image2.jpg"
-              alt="ساختماني پروژه"
-            />
+            <img src="./assets/image1.jpg" alt="ساختماني پروژه" />
           </div>
         </div>
       </div>
@@ -122,7 +121,7 @@
           <article class="feature-card">
             <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
             <h3>راپورونه او احصایې</h3>
-            <p>ژر راپورونه جوړ کړئ او د پروژې وضیعت په چارتونو کې وګورئ.</p>
+            <p>ژر راپورونه جوړ کړئ او د پروژې وضعیت په چارتونو کې وګورئ.</p>
           </article>
 
           <article class="feature-card">
@@ -134,30 +133,35 @@
       </div>
     </section>
 
-    <!-- Demo Preview -->
+    <!-- Preview -->
     <section class="section alt-bg" id="preview">
       <div class="container">
         <div class="section-head">
           <span class="section-tag">ډېمو او سکرین‌شاټ</span>
           <h2>د سیستم عمومي کتنه</h2>
-          <p>
-            لاندې ځای د اصلي سیستم ویډیو یا demo preview لپاره دی.
-          </p>
+          <p>لاندې ځای د اصلي سیستم ویډیو یا demo preview لپاره دی.</p>
         </div>
 
         <div class="preview-grid">
           <div class="video-box">
             <div class="video-placeholder">
               <i class="fa-solid fa-circle-play"></i>
-              <p>دلته د سیستم لنډه ویډیو/ډېمو ځای پر ځای کړئ</p>
+              <iframe
+                src="https://www.youtube.com/embed/IjlYXtI2-GU?si=xbpRTSZ146ppm7ue"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+              <p>دلته د سیستم لنډه کتلای سی برادارنوو✨</p>
             </div>
           </div>
 
           <div class="preview-info">
-            <h3>ولې دا ډېمو مهم دی؟</h3>
+            <h3>ولې دا ویډیو مهم دی؟</h3>
             <p>
               کاروونکي د ویډیو له لارې په لنډ وخت کې پوهېږي چې ستاسو سیستم څنګه
-              کار کوي او کومې ستونزې حل کوي.
+              کار کوي او کومې ستونزې موز حل کوي.
             </p>
 
             <ul class="check-list">
@@ -171,32 +175,30 @@
       </div>
     </section>
 
-    <!-- Extra Section 1: Workflow -->
+    <!-- About -->
     <section class="section" id="about">
       <div class="container">
         <div class="section-head">
           <span class="section-tag">زموږ د کار بهیر</span>
           <h2>سیستم څنګه کار کوي؟</h2>
-          <p>
-            د کار بهیر مو ساده، واضح او د کاروونکي لپاره اسانه دی.
-          </p>
+          <p>د کار بهیر مو ساده، واضح او د کاروونکي لپاره اسانه دی.</p>
         </div>
 
         <div class="steps-grid">
           <div class="step-card">
-            <div class="step-number">1</div>
+            <div class="step-number">🔰</div>
             <h3>ثبت او ننوتل</h3>
             <p>کاروونکی حساب جوړوي او خپل ډشبورډ ته داخلیږي.</p>
           </div>
 
           <div class="step-card">
-            <div class="step-number">2</div>
+            <div class="step-number">☀</div>
             <h3>معلومات ثبتول</h3>
             <p>پروژې، کارکوونکي، مواد او مالي معلومات ثبتوي.</p>
           </div>
 
           <div class="step-card">
-            <div class="step-number">3</div>
+            <div class="step-number">💱</div>
             <h3>څارنه او راپور</h3>
             <p>سیستم ټول معلومات تحلیلوي او بشپړ راپورونه وړاندې کوي.</p>
           </div>
@@ -220,7 +222,7 @@
               منظم دي.”
             </p>
             <div class="user-info">
-              <strong>احمد شاه</strong>
+              <strong>احمد شاه🤍</strong>
               <span>د پروژې مدیر</span>
             </div>
           </article>
@@ -231,7 +233,10 @@
               لګښتونه وګورو.”
             </p>
             <div class="user-info">
-              <strong>نورالله</strong>
+              <strong
+              >نورالله🤍🤍
+
+              </strong>
               <span>مالي مسؤول</span>
             </div>
           </article>
@@ -241,7 +246,7 @@
               “UI یې ښکلی دی، موبایل کې هم ښه کار کوي او کارول یې ساده دي.”
             </p>
             <div class="user-info">
-              <strong>فرید</strong>
+              <strong>فرید🤍🤍🤍</strong>
               <span>سیستم کاروونکی</span>
             </div>
           </article>
@@ -282,7 +287,7 @@
       </div>
     </section>
 
-    <!-- Extra Section 2: CTA -->
+    <!-- CTA -->
     <section class="cta-section">
       <div class="container cta-box">
         <div>
@@ -298,13 +303,13 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <h3>BuildApp</h3>
+        <h3>زموز سره اریکه</h3>
         <p>د ساختماني پروژو لپاره عصري ویب مدیریت سیستم.</p>
       </div>
 
       <div>
         <h4>اړیکه</h4>
-        <p>info@buildapp.com</p>
+        <p>info@Hewad wadan.com</p>
         <p>+93 700 000 000</p>
       </div>
 
@@ -326,7 +331,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 BuildApp - ټول حقوق خوندي دي.</p>
+      <p>© 2026 HWCC - ټول حقوق خوندي دي.</p>
     </div>
   </footer>
 
