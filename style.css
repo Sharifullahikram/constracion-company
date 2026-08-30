@@ -1,3 +1,8 @@
+@font-face {
+  font-family: bahig;
+  src: url(./fonts/Bahij-Bold.ttf) ;
+}
+
 :root {
   --primary: #d97706;
   --primary-dark: #b45309;
@@ -28,6 +33,47 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
+    font-family: bahig;
+
+}
+
+
+
+/* this is my about section style :  */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.step-card {
+  background: #fff;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.step-number {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.step-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.step-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #555;
 }
 
 img {

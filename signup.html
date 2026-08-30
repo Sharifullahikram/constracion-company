@@ -1,10 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="ps" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>هیواد ودان| حساب جوړول</title>
+  <title>هیواد ودان | حساب جوړول</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .error {
+      color: red;
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+    }
+    input.invalid {
+      border-color: red;
+    }
+  </style>
 </head>
 <body class="auth-page">
   <main class="auth-wrapper">
@@ -13,18 +24,22 @@
       <h1>نوی حساب جوړ کړئ</h1>
       <p class="auth-subtitle">خپل معلومات ولیکئ او پیل وکړئ.</p>
 
-      <form class="auth-form">
-        <label>بشپړ نوم</label>هیواد ودان
-        <input type="text" placeholder="خپل نوم ولیکئ" />
+      <form class="auth-form" id="signupForm" novalidate>
+        <label>بشپړ نوم</label>
+        <input type="text" id="fullName" placeholder="خپل نوم ولیکئ" />
+        <div class="error" id="fullNameError"></div>
 
         <label>ایمیل</label>
-        <input type="email" placeholder="example@email.com" />
+        <input type="email" id="email" placeholder="example@email.com" />
+        <div class="error" id="emailError"></div>
 
         <label>پټنوم</label>
-        <input type="password" placeholder="********" />
+        <input type="password" id="password" placeholder="********" />
+        <div class="error" id="passwordError"></div>
 
         <label>پټنوم بیا ولیکئ</label>
-        <input type="password" placeholder="********" />
+        <input type="password" id="confirmPassword" placeholder="********" />
+        <div class="error" id="confirmPasswordError"></div>
 
         <button type="submit" class="btn btn-primary full-btn">حساب جوړول</button>
       </form>
@@ -32,5 +47,86 @@
       <p class="auth-footer">له مخکې حساب لرئ؟ <a href="login.html">ننوتل</a></p>
     </div>
   </main>
+
+  <script>
+    const form = document.getElementById("signupForm");
+    const fullName = document.getElementById("fullName");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+
+    const fullNameError = document.getElementById("fullNameError");
+    const emailError = document.getElementById("emailError");
+    const passwordError = document.getElementById("passwordError");
+    const confirmPasswordError = document.getElementById("confirmPasswordError");
+
+    function validateEmail(email) {
+      const re = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+      return re.test(String(email).toLowerCase());
+    }
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      let valid = true;
+
+      // Full Name
+      if(fullName.value.trim() === "") {
+        fullNameError.textContent = "مهرباني وکړئ خپل بشپړ نوم ولیکئ";
+        fullName.classList.add("invalid");
+        valid = false;
+      } else {
+        fullNameError.textContent = "";
+        fullName.classList.remove("invalid");
+      }
+
+      // Email
+      if(email.value.trim() === "") {
+        emailError.textContent = "مهرباني وکړئ ایمیل ولیکئ";
+        email.classList.add("invalid");
+        valid = false;
+      } else if(!validateEmail(email.value)) {
+        emailError.textContent = "مهرباني وکړئ صحیح ایمیل ولیکئ";
+        email.classList.add("invalid");
+        valid = false;
+      } else {
+        emailError.textContent = "";
+        email.classList.remove("invalid");
+      }
+
+      // Password
+      if(password.value.trim() === "") {
+        passwordError.textContent = "مهرباني وکړئ پټنوم ولیکئ";
+        password.classList.add("invalid");
+        valid = false;
+      } else if(password.value.length < 6) {
+        passwordError.textContent = "پټنوم باید لږ تر لږه ۶ کرکټرونه ولري";
+        password.classList.add("invalid");
+        valid = false;
+      } else {
+        passwordError.textContent = "";
+        password.classList.remove("invalid");
+      }
+
+      // Confirm Password
+      if(confirmPassword.value.trim() === "") {
+        confirmPasswordError.textContent = "مهرباني وکړئ پټنوم بیا ولیکئ";
+        confirmPassword.classList.add("invalid");
+        valid = false;
+      } else if(confirmPassword.value !== password.value) {
+        confirmPasswordError.textContent = "پټنومونه سره سمون نه لري";
+        confirmPassword.classList.add("invalid");
+        valid = false;
+      } else {
+        confirmPasswordError.textContent = "";
+        confirmPassword.classList.remove("invalid");
+      }
+
+      // If all valid
+      if(valid) {
+        alert("حساب په بریالیتوب جوړ شو!");
+        form.reset();
+      }
+    });
+  </script>
 </body>
 </html>

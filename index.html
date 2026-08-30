@@ -13,32 +13,76 @@
 <body>
 
   <!-- Header -->
-  <header class="topbar">
-    <header class="topbar.hide"></header>
-    <div class="container nav-wrapper">
-      <div class="logo">
-        <img
-          src="./assets/Construction excellence with Hewad Wadan.png"
-          alt="هیواد ودان"
-        />
-      </div>
-
-      <nav class="nav-links">
-        <a href="#home">کورپاڼه</a>
-        <a href="dashboard.html">ډشبورډ</a>
-        <a href="assigned-projects.html">جورښت</a>
-        <a href="task-scheduling.html">زموږ په اړه</a>
-        <a href="progress.html">پروژی</a>
-         <a href="information.html">زموژ د شرکت اړوند</a>
-        
-      </nav>
-
-      <div class="nav-actions">
-        <a href="login.html" class="btn btn-light">ننوتل</a>
-        <a href="signup.html" class="btn btn-primary">حساب جوړول</a>
-      </div>
+   
+<header class="topbar">
+  <div class="container nav-wrapper">
+    <div class="logo">
+      <img src="./assets/Construction excellence with Hewad Wadan.png" alt="هیواد ودان" />
     </div>
-  </header>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">کورپاڼه</a>
+      <a href="dashboard.html">ډشبورډ</a>
+      <a href="assigned-projects.html">جورښت دپروژي</a>
+      <a href="task-scheduling.html">زموږ دندی</a>
+      <a href="progress.html">پروژی</a>
+      <a href="information.html">زموژ د شرکت اړوند</a>
+    </nav>
+
+    <div class="nav-actions" id="navActions">
+      <a href="login.html" class="btn btn-light">داخلیدل</a>
+      <a href="signup.html" class="btn btn-primary">حساب جوړول</a>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <style>
+    /* --- Basic --- */
+    .topbar { background:#fff; border-bottom:1px solid #ddd; position:sticky; top:0; z-index:100; }
+    .topbar .container { display:flex; justify-content:space-between; align-items:center; padding:10px 20px; }
+    .logo img { height:40px; }
+    .nav-links, .nav-actions { display:flex; gap:15px; align-items:center; transition:0.3s; }
+    .nav-links a, .nav-actions a { text-decoration:none; padding:5px 10px; border-radius:5px; color:#333; }
+    .btn-light { background:#f0f0f0; color:#333; }
+    .btn-light:hover { background:#ddd; }
+    .btn-primary { background:#ff9c07; color:#fff; }
+    .btn-primary:hover { background:#ff9807; }
+
+    /* Hamburger */
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+    .hamburger span { width:25px; height:3px; background:#333; border-radius:2px; transition:0.3s; }
+
+    /* Mobile menu */
+    @media(max-width:768px){
+      .nav-links, .nav-actions { 
+        position:absolute; top:60px; right:0; width:200px; flex-direction:column; background:#fff; padding:15px; border:1px solid #ddd; border-radius:5px; transform:translateX(100%); opacity:0; pointer-events:none; }
+      .nav-links.show, .nav-actions.show { transform:translateX(0); opacity:1; pointer-events:auto; transition:0.3s; }
+      .hamburger { display:flex; }
+    }
+
+    /* Hamburger animation to X */
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.active span:nth-child(2) { opacity:0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+  </style>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    const navActions = document.getElementById("navActions");
+
+    hamburger.addEventListener("click",()=>{
+      navLinks.classList.toggle("show");
+      navActions.classList.toggle("show");
+      hamburger.classList.toggle("active");
+    });
+  </script>
+</header>
 
   <main>
     <!-- Hero Section -->
@@ -82,7 +126,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="section" id="features">
+    <!-- <section class="section" id="features">
       <div class="container">
         <div class="section-head">
           <span class="section-tag">اصلي ځانګړنې</span>
@@ -131,7 +175,27 @@
           </article>
         </div>
       </div>
-    </section>
+    </section> -->
+
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">اصلي ځانګړنې</span>
+      <h2>هغه څه چې دا سیستم ځانګړی کوي</h2>
+      <p>
+        دا سیستم د ساختماني ادارو لپاره مهمې اړتیاوې په یو ساده، ښکلي او چټک
+        انٹرفېس کې وړاندې کوي.
+      </p>
+    </div>
+
+    <div class="features-grid" id="featureList">
+      <!-- Dynamic features will load here -->
+    </div>
+  </div>
+</section>
+
+<script src="feature.js" defer></script>
+    
 
     <!-- Preview -->
     <section class="section alt-bg" id="preview">
@@ -175,7 +239,9 @@
       </div>
     </section>
 
-    <!-- About -->
+    
+
+    <!-- About
     <section class="section" id="about">
       <div class="container">
         <div class="section-head">
@@ -204,9 +270,27 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- Testimonials -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">زموږ د کار بهیر</span>
+      <h2>سیستم څنګه کار کوي؟</h2>
+      <p>د کار بهیر مو ساده، واضح او د کاروونکي لپاره اسانه دی.</p>
+    </div>
+
+    <div class="steps-grid" id="stepsList">
+      <!-- Steps will load dynamically from JSON -->
+    </div>
+  </div>
+</section>
+
+<!-- Correct JS link -->
+<script src="about.js" defer></script>
+
+
+    <!-- Testimonials
     <section class="section alt-bg">
       <div class="container">
         <div class="section-head">
@@ -252,10 +336,39 @@
           </article>
         </div>
       </div>
-    </section>
+    </section> -->
+
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">د کاروونکو نظرونه</span>
+      <h2>خلک زموږ په اړه څه وایي؟</h2>
+      <p>دا برخه د باور زیاتولو لپاره ډېره مهمه ده.</p>
+    </div>
+
+    <!-- Dynamic Testimonials Grid -->
+    <div class="testimonials-grid" id="testimonialsGrid">
+      <!-- JS به دلته testimonials اضافه کړي -->
+           <script src="json file .js"></script>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- FAQ -->
-    <section class="section" id="faq">
+    <!-- <section class="section" id="faq">
       <div class="container">
         <div class="section-head">
           <span class="section-tag">عامې پوښتنې</span>
@@ -285,7 +398,37 @@
           </details>
         </div>
       </div>
-    </section>
+    </section> -->
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">عامې پوښتنې</span>
+      <h2>هغه پوښتنې چې اکثره خلک یې کوي</h2>
+      <p>دلته ستا د کاروونکو لپاره مهمې پوښتنې ځواب شوي دي.</p>
+    </div>
+
+    <!-- FAQ will load dynamically here -->
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container cta-box">
+    <div>
+      <h2>چمتو یاست چې خپل کارونه ډیجیټل کړئ؟</h2>
+      <p>همدا نن زموږ سیستم وازمویئ او خپلې پروژې په ښه ډول مدیریت کړئ.</p>
+    </div>
+    <a href="#" class="btn btn-primary">وړیا پیل</a>
+  </div>
+</section>
+
+<!-- External JS -->
+<script src="faq.js" defer></script>
+
+
 
     <!-- CTA -->
     <section class="cta-section">

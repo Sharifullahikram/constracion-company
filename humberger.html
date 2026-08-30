@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ps" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HWCC | کورپاڼه</title>
+  <style>
+    /* --- Reset & base --- */
+    * { margin:0; padding:0; box-sizing:border-box; font-family: sans-serif; }
+    body { line-height:1.5; }
+
+    /* --- Header styles --- */
+    .topbar { background: #fff; border-bottom: 1px solid #ddd; position: sticky; top:0; z-index: 1000; }
+    .topbar .container { display:flex; align-items:center; justify-content: space-between; padding:10px 20px; max-width:1200px; margin:auto; }
+    .logo img { height:40px; }
+
+    .nav-links { display:flex; gap:15px; }
+    .nav-links a { text-decoration:none; color:#333; padding:5px 10px; transition:0.3s; }
+    .nav-links a:hover { background:#f0f0f0; border-radius:5px; }
+
+    .nav-actions { display:flex; gap:10px; }
+    .btn { text-decoration:none; padding:6px 15px; border-radius:4px; transition:0.3s; font-size:14px; }
+    .btn-light { background:#f0f0f0; color:#333; }
+    .btn-light:hover { background:#ddd; }
+    .btn-primary { background:#0d6efd; color:#fff; }
+    .btn-primary:hover { background:#0b5ed7; }
+
+    /* --- Hamburger --- */
+    .hamburger { display:none; flex-direction: column; cursor:pointer; gap:5px; }
+    .hamburger span { width:25px; height:3px; background:#333; border-radius:2px; transition:0.3s; }
+
+    /* --- Mobile menu --- */
+    @media (max-width: 768px){
+      .nav-links, .nav-actions { display:none; flex-direction: column; background:#fff; position:absolute; top:60px; right:0; width:200px; padding:15px; border:1px solid #ddd; border-radius:5px; }
+      .nav-links.show, .nav-actions.show { display:flex; }
+      .hamburger { display:flex; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="topbar">
+    <div class="container nav-wrapper">
+      <div class="logo">
+        <img src="./assets/Construction excellence with Hewad Wadan.png" alt="هیواد ودان" />
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">کورپاڼه</a>
+        <a href="dashboard.html">ډشبورډ</a>
+        <a href="assigned-projects.html">جورښت دپروژي</a>
+        <a href="task-scheduling.html">زموږ دندی</a>
+        <a href="progress.html">پروژی</a>
+        <a href="information.html">زموژ د شرکت اړوند</a>
+      </nav>
+
+      <div class="nav-actions" id="navActions">
+        <a href="login.html" class="btn btn-light">داخلیدل</a>
+        <a href="signup.html" class="btn btn-primary">حساب جوړول</a>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding:20px;">
+    <h1>ښه راغلاست!</h1>
+    <p>دا د HWCC ویب پاڼه ده، د هومبورګر مینو سره.</p>
+  </main>
+
+  <script>
+    // --- Hamburger toggle ---
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    const navActions = document.getElementById("navActions");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      navActions.classList.toggle("show");
+      // Animate hamburger
+      hamburger.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
